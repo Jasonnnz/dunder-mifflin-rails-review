@@ -1,7 +1,13 @@
 <h1>Dogs</h1>
 
+<% ordered_dogs_list = @dogs.sort_by do |dog| %>
+    <% dog.employees.count %>
+<% end %>
+
 <ul>
-<% @dogs.each do |dog| %>
+<% ordered_dogs_list.each do |dog| %>
     <li><%= link_to dog.name, dog_path(dog) %></li>
+    <p>Employee Count: <%=  dog.employees.count %></p>
 <% end %>
 </ul>
+
