@@ -8,3 +8,5 @@
     <li><%= link_to (employee.first_name + " " + employee.last_name), employee_path(employee)%></li>
 <% end %>
 </ul>
+
+<%= button_to "Delete Dog", dog_path(@dog), method: :delete %>

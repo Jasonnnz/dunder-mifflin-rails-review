@@ -18,13 +18,25 @@ class DogsController < ApplicationController
 
     def create
         @dog = Dog.create(dog_params)
-        redirect_to dog_path(@dog)
+        if @dog.valid?
+            @dog.save
+            redirect_to dog_path(@dog)
+        else
+            @dog_errors = @dog.errors.full_messages
+            redirect_to new_dog_path
+        end
     end
 
     def update
         @dog = Dog.find(params[:id])
         @dog.update(dog_params)
         redirect_to dog_path(@dog)
+    end
+
+    def destroy
+        @dog = Dog.find(params[:id])
+        @dog.destroy
+        redirect_to dogs_path
     end
 
     private 

@@ -1,5 +1,11 @@
 <h1>Create a new Dog<</h1>
 
+<% if @dog_errors %>
+    <% @dog_errors.each do |error|%>
+        <p><%= error %></p>
+    <% end %>
+<% end %>
+
 <%= form_for @dog do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %><br>
