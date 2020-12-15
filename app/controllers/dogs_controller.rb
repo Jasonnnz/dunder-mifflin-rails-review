@@ -22,7 +22,7 @@ class DogsController < ApplicationController
             @dog.save
             redirect_to dog_path(@dog)
         else
-            @dog_errors = @dog.errors.full_messages
+            flash[:errors] = @dog.errors.full_messages
             redirect_to new_dog_path
         end
     end

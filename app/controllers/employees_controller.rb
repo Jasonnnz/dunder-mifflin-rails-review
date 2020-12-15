@@ -23,7 +23,7 @@ class EmployeesController < ApplicationController
         @employee.save
         redirect_to employee_path(@employee)
       else
-        @employee_errors = @employee.errors.full_messages
+        flash[:errors] = @employee.errors.full_messages
         redirect_to new_employee_path
       end
    end

@@ -1,7 +1,7 @@
 <h1>Create a new Employee</h1>
 
-<% if @employee_errors %>
-    <% @employee_errors.each do |error|%>
+<% if flash[:errors] %>
+    <% flash[:errors].each do |error|%>
         <p><%= error %></p>
     <% end %>
 <% end %>

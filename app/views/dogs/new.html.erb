@@ -1,7 +1,7 @@
 <h1>Create a new Dog<</h1>
 
-<% if @dog_errors %>
-    <% @dog_errors.each do |error|%>
+<% if flash[:errors] %>
+    <% flash[:errors].each do |error|%>
         <p><%= error %></p>
     <% end %>
 <% end %>
